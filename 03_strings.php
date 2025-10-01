@@ -29,7 +29,7 @@ echo "<br>";
 echo "der \"$name\"";
 echo "<br>";
 
-echo strlen($name); // zählt die buchstaben bzw. bits eines Wortes
+echo "Der Name hat " . strlen($name) . " Zeichen (Bits)."; // zählt die buchstaben bzw. bits eines Wortes
 echo "<br>";          // umlaute und spezielle zeichen werden zusätzlich gezählt
 
 $wort = "Hallo Welt, dies ist ein Test";
@@ -41,5 +41,22 @@ echo "<br>";
 
 $vornamen = "Max";
 $nachnamen = "Mustermann";
+$vvmann= "Fuhrmann";
 
 //Aufgabe: Schreibe eine Funktion, die vor- und nachname miteinander verbindet und ein echo ausgibt mit "Hallo Max Mustermann".
+function begrueßung($v, $n)
+{
+    echo "Hallo $v $n";
+}
+
+
+//echo $v;//gibt es nicht, nur innerhalb der Funktion
+
+begrueßung(1, 2);
+echo "<br>";
+begrueßung("Sam", "dod");
+echo "<br>";
+
+//verkettung mit PUNKT .
+
+echo "Hallo" . " " . "Welt";
