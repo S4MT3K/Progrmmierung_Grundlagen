@@ -60,3 +60,35 @@ echo "<br>";
 //verkettung mit PUNKT .
 
 echo "Hallo" . " " . "Welt";
+
+
+// String kann man mit . verbinden
+$name = $vorname . $nachname;
+echo "\n";
+echo $name; // ohne Leerzeichen
+$name = $vorname . " ". $nachname;
+echo "\n";
+echo $name; // mit Leerzeichen
+// bessere Methode ist die Variablen in einem " String zu schreiben
+$name = "$vorname $nachname";
+echo "\n";
+echo $name;
+//https://www.w3schools.com/php/php_ref_string.asp
+//strtoupper();
+//strtolower();
+//str_replace();
+//strrev();
+//trim();
+//str_split()
+// String Slicing
+$a = "php ist super toll";
+
+
+print "\n";
+echo substr($a,0,3); // Starte beim ersten Buchstaben und gehe 3 Buchstaben weiter
+print "\n";
+echo substr($a,8); // ohne den lenght parameter macht er es bis zum ende
+print "\n";
+echo substr($a,-5, 5); // bei negativen geht es am ende los
+print "\n";
+echo substr($a,8, -5); // vom 8 bis zum index -5
