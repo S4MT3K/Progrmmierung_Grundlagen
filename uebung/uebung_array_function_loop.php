@@ -26,3 +26,6 @@ function spliceArray(&$array, $start, $length)
 
 echo "<pre>";
 print_r($names);
+
+// nehmt dasselbe array, und iteriert hindurch, bis ihr den 12 und 13 eintrag findet,
+// und gebt die werte dessen in einem Echo aus
