@@ -44,9 +44,9 @@ $nachnamen = "Mustermann";
 $vvmann= "Fuhrmann";
 
 //Aufgabe: Schreibe eine Funktion, die vor- und nachname miteinander verbindet und ein echo ausgibt mit "Hallo Max Mustermann".
-function begrueßung($v, $n)
+function begrueßung($vorname, $nachname)
 {
-    echo "Hallo $v $n";
+    echo "Hallo $vorname $nachname";
 }
 
 
