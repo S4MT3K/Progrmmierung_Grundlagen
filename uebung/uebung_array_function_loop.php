@@ -7,3 +7,22 @@
 //begründet vor und nachteile eurer Vorgehensweise.
 
 //Viel Erfolg
+$names = [
+    "Anna", "Ben", "Chris", "Diana", "Elias",
+    "Fiona", "Gabriel", "Hannah", "Isaac", "Julia",
+    "Kevin", "Laura", "Max", "Nina", "Oliver",
+    "Paula", "Quentin", "Ronja", "Sarah", "Tim"
+];
+
+echo "<pre>";
+print_r($names);
+
+function spliceArray(&$array, $start, $length)
+    {
+        array_splice($array, $start - 1, $length);
+    }
+
+    spliceArray($names, 12, 2);
+
+echo "<pre>";
+print_r($names);
