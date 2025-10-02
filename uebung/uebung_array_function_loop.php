@@ -28,4 +28,12 @@ echo "<pre>";
 print_r($names);
 
 // nehmt dasselbe array, und iteriert hindurch, bis ihr den 12 und 13 eintrag findet,
-// und gebt die werte dessen in einem Echo aus
+// und gebt den 12. und 13. in einem Echo aus. Verwendet bitte if, else... und keine Build in Array funktionen.
+
+
+#### LÖSUNG AUFGABE ####
+
+
+// schreibt eine Funktion die das vorhandene Array nach namen, länger as 5 zeichen durchsucht und gebt mit dieser
+// funktion ein neues array namens $newNames zurück.
+//Sonderaufgabe: Bearbeitet das alte array so, dass die "alten" Namen darin nicht mehr vorhanden sind.
