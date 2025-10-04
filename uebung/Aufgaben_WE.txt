@@ -1,0 +1,96 @@
+//Kopiert euch bitte dieses Array in euren code, dies brauchen wir für die Übungen
+
+##
+<?php
+$names = ["Lara", "Ben", "Mia", "Omar", "Zoe"];
+$nums  = [12, 5, 19, 5, 42, 7];
+$prices = [3.49, 9.99, 1.99, 12.50, 12.49];
+$user = ["name" => "Sam", "age" => 36, "active" => true]; //Dies ist ein Assoziatives Array (BITTE RECHERCHE, wenn nicht weglassen)
+##
+
+//
+//echo uebung
+Gib “Hallo, Welt!” mit echo aus.
+
+Gib Hallo, sam! aus dem $user array aus (Variable eingebettet). (der "index" des assoziativen array ist sein "keyword" in dem fall "name".
+
+Gib einen Zeilenumbruch mit PHP_EOL aus.
+
+
+//Variablen
+Lege $a, $b an; und fülle sie mit 19 und 42 aus dem $nums array.
+
+(Sonderaufgabe) = Tausche die Werte von $a und $b ohne dritte Variable (Trick erlaubt).
+
+Erhöhe $a um 5, verringere $b um 1 und gib beide aus. (Sonderaufgabe): Nutze dafür funktionen
+
+
+//Strings
+erstelle eine $full = "Hello PHP"; – gib Länge und die ersten 5 Zeichen aus.
+
+erstelle eine $myEmail = "email@example.com": gib Domain nach dem @ aus.
+
+Ersetze in $myObst = "Apfel,Birne,Banane" die Kommas durch |.
+
+
+//Integer
+Prüfe, ob $n=42 gerade oder ungerade (Modulo) und gib Text aus.
+
+Zähle von 1 bis 10 mit for, gib nur Vielfache von 3 aus.
+
+Berechne Fakultät von 5 (iterativ) und gib Ergebnis aus.
+
+//Float
+Runde 3.14159 auf 2 Nachkommastellen und gib sie aus. (Sonderaufgabe): Erstelle eine Funktion MIT RÜCKGABEWERT dafür
+
+Formatiere 1234.5 als Preis 1.234,50 € (mit number_format) und füge sie dem prices array hinzu. mache ein var_dump($prices) zur kontrolle
+
+Vergleiche 0.1 + 0.2 mit 0.3 per Epsilon und gib “gleich/ungleich”.
+
+
+//Booleans
+Aus $user['active']: gib “eingeloggt”/“ausgeloggt” aus (ternär).
+
+Wandle: "", 0, "0", [], null zu Bool und var_dump sie.
+
+Negiere ein Flag $isAdmin=false und gib das Ergebnis aus.
+
+
+//Vergleichsoperatoren
+Vergleiche "5" == 5 und "5" === 5; gib je ein Ergebnis-Text aus.
+
+Nutze <=> für $x=7, $y=9 und gib −1/0/1 aus.
+
+Prüfe: $a<=10 && $b>0 || $c===null und gib “true/false”. (Variablen bitte immer selbst erstellen)
+
+Funktionen
+
+Schreibe sumArray(array $arr): int|float – gib Summe von $nums aus.
+
+Schreibe greet(string $name="Gast"): void – rufe ohne/mit Name auf.
+
+Schreibe maxPrice(array $prices): float – gib höchsten Preis aus.
+
+//Conditions
+
+Wenn $user['age'] >= 18: “Volljährig”, sonst “Minderjährig”.
+
+Nutze match($note) für 1–6 und gib Text (“Sehr gut”…“Ungenügend”).
+
+If/elseif: Temperatur t. <0 “Frost”, 0–25 “OK”, >25 “Heiß”. (Kurzschreibweise einer aufgabenstellung aka. PSEUDOCODE)
+
+
+
+//Arrays (nur Abfragen/Ausgaben)
+Filter & Ausgabe: Gib alle Elemente aus $nums, die > 10 sind.
+Bonus: gib zusätzlich deren Anzahl aus.
+
+Suche & Bedingung: Wenn $names den Namen “Mia” enthält, gib “Gefunden” aus, sonst “Nicht gefunden”.
+
+Aggregation mit Bedingung: Gib die Summe aller $prices aus, die >= 10 sind.
+
+Max/Min & Kontext: Finde das Maximum in $nums und gib “Größte Zahl ist X” aus.
+
+Mehrfach-Bedingung: Wenn Durchschnitt von $nums > 15 und count($nums) >= 5, gib “Viele große Zahlen”, sonst “Eher klein/kurz”.
+
+Distinct-Abfrage: Entferne Duplikate aus $nums und gib die einzigartigen Werte aus.
