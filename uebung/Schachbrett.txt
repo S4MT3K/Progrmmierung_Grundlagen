@@ -1,0 +1,15 @@
+Macht euch mit html vertraut (DIV´s) css.
+
+Erstellt OHNE CHAT GPT!!!! ein Schachbrett.
+
+(DIV;Farbe:weiß) (DIV;Farbe:schwarz)
+(DIV;Farbe:schwarz) (DIV;Farbe:weiß)
+
+Realisierbar im for loop ;) und andere.
+
+
+Erstellt ein $User Array (Multidimensional)
+
+$Firma mit jeweils (chefetage: 5 mitarbeiter) und (Personal: 10 Mitarbeiter)
+
+als assoziatives array!

@@ -63,7 +63,7 @@ Nutze <=> für $x=7, $y=9 und gib −1/0/1 aus.
 
 Prüfe: $a<=10 && $b>0 || $c===null und gib “true/false”. (Variablen bitte immer selbst erstellen)
 
-Funktionen
+//Funktionen
 
 Schreibe sumArray(array $arr): int|float – gib Summe von $nums aus.
 
