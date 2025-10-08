@@ -1,0 +1,29 @@
+body{
+    background-color: gray;
+}
+
+p{
+    background-color: white;
+}
+
+a{
+    color: black;
+}
+
+table{
+    border: 1px solid black;
+}
+
+td{
+    border: 1px solid black;
+}
+
+tr{
+    border: 1px solid black;
+}
+
+.board { display:grid; grid-template-columns:repeat(8,60px); width:480px; border:2px solid #333 }
+.sq { width:60px; height:60px }
+.dark { background:#769656 }
+.light { background:#eeeed2 }
+
