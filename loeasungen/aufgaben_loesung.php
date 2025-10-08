@@ -192,4 +192,99 @@ function fakultaet($n)                     // Die Funktion "fakultaet" wird ange
 echo "<br>";
 echo fakultaet(5);
 echo "<br>";
+echo "<br>";
+echo "<br>";
 
+//Float uebung
+
+//$pi = 3.14159;
+//$roundedPi = round($pi, 2); //Easy Way To Round A Float
+echo '#######AUFGABE 9#######';
+echo "<br>";
+
+function roundThatNumber(float $number, int $decimalPlaces) : float
+{
+    return round($number, $decimalPlaces);
+}
+
+echo roundThatNumber(3.14159, 2);
+echo "<br>";
+echo "<br>";
+
+
+//Format
+$unformattedNumber = 1234.5;
+$formattedNumber = (float)number_format($unformattedNumber, 2, ',', '.'); //cast to float to match array type
+$prices[] = $formattedNumber;
+var_dump($prices);
+echo "<br>";
+
+$a = 0.1 + 0.2;
+$b = 0.3;
+$epsilon = 0.00001; //Katastrophe... Bitte nicht in der praxis benutzen
+
+if (abs($a - $b) < $epsilon) {
+    echo "gleich";
+} else {
+    echo "ungleich";
+}
+
+echo "<br>";
+echo "<br>";
+echo '#######AUFGABE 10#######';
+echo "<br>";
+
+echo $user["active"] ? "Eingeloggt" : "ausgeloggt"; //Kurzschreibweise eine if abfrage (Ternärer Operator)
+$user["active"] = false;
+echo "<br>";
+echo $user["active"] ? "Eingeloggt" : "ausgeloggt";
+
+$falsyArray = ["",0,"0",null];
+echo "<br>";
+foreach ($falsyArray as $falsy) {
+    if(empty($falsy)) {
+        $falsyArray[$falsy] = false;
+    } else {
+        echo "not empty";
+    }
+}
+var_dump($falsyArray); // manche werte werden nicht als falsy bzw. empty angesehen
+// es gibt andee methoden zum überprüfen... Gerne mal nachschlagen ;)
+
+echo "<br>";
+
+//negierung des admin flags bereits oben passiert ;) bei der ausgabe von ein oder ausgeloggt
+echo '#######AUFGABE 11#######';
+echo "<br>";
+echo "ergebnis ist " . (5 == "5"); //in klammern schreiben für besseren output
+//echo 5 === "5"; // kannb nicht ausgeführt werden da die beiden vergleichsparameter inkompatibel zueinander sind...
+echo "<br>";
+
+//SWITCH USING incl. Funktion in der verglichen wird.
+//switch wird bedient, indem der zu übergebende parameter der return wert der aufgerufenen Funktion ist
+
+function compareNumbers(int $a, int $b) : string
+{
+    if ($a > $b) {
+        return "greater";
+    } elseif ($a < $b) {
+        return "less";
+    } else {
+        return "equal";
+    }
+}
+
+switch (compareNumbers(5, 10)) {
+    case "greater":
+        echo "greater";
+        break;
+    case "less":
+        echo "less";
+        break;
+    case "equal":
+        echo "equal";
+    default:
+        echo "unknown error occurred, pls contact admin";
+}
+
+echo '#######AUFGABE 11#######';
