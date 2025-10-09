@@ -1,0 +1,12 @@
+Erstellt basierend auf dem Mockup eine Website.
+in halbwegs schön wenn es geht :) Gern mit CSS anteilen.
+
+Die funktionalität des Logins soll NOCH NICHT gegeben sein,
+allerdings sollten die einzelnen unterseiten erreichbar und logischerweise
+auch so aussehen wie sie heissen ;D
+
+
+
+//Sonderaufgabe: Login Funktioniert in soweit, dass sich ein admin, dessen logindaten aus einem
+"hard gecodeten" array auslesen und abgleichen lassen, sodass er auf eine NEUE unterseite gelangt
+auf der steht; ERFOGLREICH ALS ADMIN EINGELOGGT!
