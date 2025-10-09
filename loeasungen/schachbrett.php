@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document of the greatest</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- link to css file -->
 </head>
 <body>
 
@@ -19,14 +19,17 @@
 <h5>ICH BIN EINE ÜBERSCHRIFT</h5>
 <h6>ICH BIN EINE ÜBERSCHRIFT</h6>
 <p style="margin-bottom: -15px; font-size: 60px;">Ich bin ein Text</p>
-<p>Ich bin ein Text</p>
-Ich bin ein text <br><hr>
+<p>Ich bin ein Text</p> <!-- p ist ein Paragraph-->
+Ich bin ein text <br><hr> <!--hr ist ein horizontaler Strich-->
 <a href="https://www.google.de">Ich bin ein link zu google </a>
-<img alt="Bild eines Sonnenuntergangs" src="/pictures/Unbenannt1.jpg">
-<div>Ich bin ein "Container"</div>
-<span>I am totally weird...</span>
+<img alt="Bild eines Sonnenuntergangs" src="/pictures/Unbenannt1.jpg"> <!--alt ist ein alternativer Text-->
 <br>
-<ol>
+<br>
+<div>Ich bin ein "Container"</div>
+<span>I am totally weird...</span> <!-- span ist ein Container-->
+<br>
+<br>
+<ol> <!-- ol ist ein ordered list, ul wäre eine unordered list-->
     <li>aIch bin ein Listenelement</li>
     <li>ccIch bin ein Listenelement</li>
     <li>hIch bin ein Listenelement</li>
@@ -36,9 +39,9 @@ Ich bin ein text <br><hr>
 </ol>
 <p>
     <hr>
-<table>
+<table> <!-- table ist ein tabellenformatierer-->
     <tr>Ich bin die erste Tabellenzeile
-        <td>
+        <td> <!-- td ist ein tabellenzelle-->
             INFO1
         </td>
         <td>
@@ -63,7 +66,7 @@ Ich bin ein text <br><hr>
 <p>
 <table style="width:100%">
     <tr>
-        <th>Company</th>
+        <th>Company</th> <!-- th ist ein tabellenkopf-->
         <th>Contact</th>
         <th>Country</th>
     </tr>
@@ -89,7 +92,7 @@ for($i = 0; $i <8; $i++)
     for($j = 0; $j < 8; $j++)
     {
         $color = (($i + $j) % 2 == 0) ? "dark" : "light"; ?>
-        <div class="sq <?php echo $color; ?>"></div>
+        <div class="sq <?php echo $color; ?>"></div> <!-- php code wurde in html eingebunden, inline php, embedded php -->
     <?php
     }
 }
@@ -125,7 +128,8 @@ $tim = ["name" => "tim", "last_name" => "dereine", "age" => 2465];
 
 $firma = ["mitarbeiter" => $mitarbeiter, "chefetage" => $chefetage];
 
-$firma["mitarbeiter"][] = $buck;
+//$firma["mitarbeiter"][] = $buck; //ohne key erstellt also indexed
+$firma["mitarbeiter"]["buck"] = $buck; //ohne key erstellt also assoziiert
 echo "<pre>";
 print_r($firma);
 
