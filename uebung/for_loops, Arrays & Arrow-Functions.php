@@ -56,3 +56,41 @@ echo $add(1, 2); //ausgabe der kurzfunktion (aufruf und übergabe)
 // erstelle eine Funktion, die die beiden werte der konten einliest, sie Addiert und auf Gustavis
 // konto überweist. Rebeccas kontostand soll danach 0, gustavis kontostand die summe
 // beider kontostände sein.
+
+
+$ktn_G = 289;
+$ktn_R = 345;
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "Vor der Kontozusammenführung:";
+echo "<br>";
+echo "Gustavis Konto : $ktn_G €";
+echo "<br>";
+echo "Rebeccas Konto : $ktn_R €";
+echo "<br>";
+echo "<br>";
+
+function sumKontoToFirst(int &$ktn_first, int &$ktn_second) : void //DEFINITION
+{
+    $ktn_first += $ktn_second;
+//    $newKontostand = $ktn_first + $ktn_second;
+//    $ktn_first = $ktn_first + $ktn_second;
+    $ktn_second = 0;
+}
+
+sumKontoToFirst($ktn_G, $ktn_R); //FUNKTIONSAUFRUF
+
+echo "Nach der Kontozusammenführung:";
+echo "<br>";
+echo "Gustavis Konto : $ktn_G";
+echo "<br>";
+echo "Rebeccas Konto : $ktn_R";
+
+
+
+
+
+
+
