@@ -58,35 +58,53 @@ echo $add(1, 2); //ausgabe der kurzfunktion (aufruf und übergabe)
 // beider kontostände sein.
 
 
-$ktn_G = 289;
-$ktn_R = 345;
+$ktn_G = createKtn(2250.74, 17.6, 255);
+//$ktn_G = [289];
+$ktn_R = createKtn(13.8, 176.6, 255, 3420.55, 50);
+//$ktn_R = [22.5,17.6,13.8];
 
 echo "<br>";
 echo "<br>";
 echo "<br>";
 echo "Vor der Kontozusammenführung:";
 echo "<br>";
-echo "Gustavis Konto : $ktn_G €";
+echo "Gustavis Konto : " . array_sum($ktn_G) . " €";
 echo "<br>";
-echo "Rebeccas Konto : $ktn_R €";
+echo "Rebeccas Konto : " . array_sum($ktn_R) . " €";
 echo "<br>";
 echo "<br>";
 
-function sumKontoToFirst(int &$ktn_first, int &$ktn_second) : void //DEFINITION
-{
-    $ktn_first += $ktn_second;
-//    $newKontostand = $ktn_first + $ktn_second;
-//    $ktn_first = $ktn_first + $ktn_second;
-    $ktn_second = 0;
+function createKtn(...$positions) : array {
+    $pos_arr = [];
+    foreach ($positions as $position) {
+        $pos_arr[] = $position;
+    }
+    return $pos_arr;
 }
 
-sumKontoToFirst($ktn_G, $ktn_R); //FUNKTIONSAUFRUF
+//AUFGABE: Summiert jeweils jedes array einzeln OHNE build in function
+// zieht einen betrag von rebecca ab (soll im array hinzukommen) und addiert
+//gustavi den betrag auf seinen konto
+function sumKontoToFirst(array &$ktn_first, array &$ktn_second, int $amount) : void //DEFINITION
+{
+    if($ktn_second >= $amount)//check ob überwiesen werden kann
+    {
+        $ktn_second -= $amount;
+        $ktn_first += $amount;
+    }
+    else
+    {
+        echo "<br>Nicht genug Geld auf dem Konto <br>";
+    }
+}
+
+sumKontoToFirst($ktn_G, $ktn_R, 399); //FUNKTIONSAUFRUF
 
 echo "Nach der Kontozusammenführung:";
 echo "<br>";
-echo "Gustavis Konto : $ktn_G";
+echo "Gustavis Konto : $ktn_G €";
 echo "<br>";
-echo "Rebeccas Konto : $ktn_R";
+echo "Rebeccas Konto : $ktn_R €";
 
 
 
