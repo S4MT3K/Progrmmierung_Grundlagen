@@ -1,0 +1,29 @@
+.navBar{
+    display: flex;
+    width: 100%;
+}
+.navElement{
+    flex: 1;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+.navElement:hover{
+    background-color: lightgray;
+}
+.navElement:active{
+    background-color: red;
+}
+
+.mainContentElement{
+    border: 1px solid black;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContent{
+    display: flex;
+    align-items: center;
+}

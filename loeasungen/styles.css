@@ -27,3 +27,10 @@ tr{
 .dark { background:#769656 }
 .light { background:#eeeed2 }
 
+.test{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+}
