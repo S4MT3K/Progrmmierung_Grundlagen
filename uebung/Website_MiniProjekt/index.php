@@ -45,6 +45,9 @@
 
         <form action="loggedin.php" method="GET">
             <h2>LOGIN</h2>
+            <input type="text" class="input" name="user" placeholder="Username" required>
+            <input type="password" class="input" name="passwd" placeholder="Password" required>
+            <button>Ich bin ein Button</button>
         </form>
     </section>
 </div>

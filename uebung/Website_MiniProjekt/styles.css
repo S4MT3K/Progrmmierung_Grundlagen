@@ -34,3 +34,8 @@
 .page:target{
     display: block;
 }
+
+.form{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.08);width:320px}
+.form h2{text-align:center;margin:0 0 12px;font-size:18px}
+.input{width:75%;padding:10px;margin:8px 0;border:1px solid #ddd;border-radius:6px}
+.btn{width:100%;padding:10px;border:none;border-radius:6px;background:#2563eb;color:#fff;font-weight:600}

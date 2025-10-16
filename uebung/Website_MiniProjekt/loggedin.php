@@ -8,6 +8,19 @@
     <title>LOGGED IN</title>
 </head>
 <body style="background-color: gray">
-YOU ARE LOGGED IN!
+<?php
+$loginData = ['user' => 'sam', 'passwd' => 123456];
+
+
+if (isset($_GET['user']) && isset($_GET['passwd'])) {
+    $userToLogin = $_GET['user'];
+    $passwdToLogin = $_GET['passwd'];
+    if ($userToLogin == $loginData['user'] && $passwdToLogin == $loginData['passwd']) {
+        echo "Welcome " . $userToLogin . "!";
+    } else {
+        echo "You are not logged in!";
+    }
+}
+?>
 </body>
 </html>

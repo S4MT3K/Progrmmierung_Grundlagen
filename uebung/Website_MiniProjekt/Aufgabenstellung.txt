@@ -10,3 +10,7 @@ auch so aussehen wie sie heissen ;D
 //Sonderaufgabe: Login Funktioniert in soweit, dass sich ein admin, dessen logindaten aus einem
 "hard gecodeten" array auslesen und abgleichen lassen, sodass er auf eine NEUE unterseite gelangt
 auf der steht; ERFOGLREICH ALS ADMIN EINGELOGGT!
+
+
+
+http://localhost:63342/Progrmmierung_Grundlagen/uebung/Website_MiniProjekt/loggedin.php?user=sam&passwd=654321
