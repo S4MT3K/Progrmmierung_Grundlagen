@@ -28,7 +28,7 @@
     <br>
 
         <h1>Bitte Registriere Dich</h1>
-        <form method="post" action="">
+        <form method="post" action="request.php">
             <div class="input">
                 <label for="user">Benutzername</label>
                 <input id="user" name="user" type="text" required autofocus />

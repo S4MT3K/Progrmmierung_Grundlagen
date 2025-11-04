@@ -28,7 +28,7 @@
     <br>
 
         <h1>Bitte Logge Dich Ein</h1>
-        <form method="post" action="">
+        <form method="post" action="request.php">
             <div class="input">
                 <label for="user">Benutzername</label>
                 <input id="user" name="user" type="text" required autofocus />
@@ -40,7 +40,7 @@
             </div>
 
             <div class="actions">
-                <button class="login" type="submit" name="login">Anmelden</button>
+                <button class="login" type="submit">Anmelden</button>
             </div>
         </form>
     <br>
