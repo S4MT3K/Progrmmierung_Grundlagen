@@ -27,7 +27,7 @@
         <h1>Willkommen, Lieber User!</h1>
     <br>
 
-        <h1>Bitte Logge Dich Ein</h1>
+        <h1>Bitte Registriere Dich</h1>
         <form method="post" action="">
             <div class="input">
                 <label for="user">Benutzername</label>
@@ -44,7 +44,7 @@
             </div>
         </form>
     <br>
-    <a href="register.php">Registrieren!</a>
+    <a href="index.php">Back To Login!</a>
 </div>
 </body>
 </html>
