@@ -24,7 +24,22 @@ catch(PDOException $e){
     echo "Connection failed: " . $e->getMessage();
 }
 
+//CREATE, READ, UPDATE, DELETE
+function create_user() {
+    $query = "INSERT INTO user (username, password) VALUES (:username, :password)";
+}
 
+function get_user() {
+    $query = "SELECT * FROM user";
+}
+
+function delete_user() {
+    $query = "DELETE FROM user WHERE username = :username";
+}
+
+function update_user() {
+    $query = "UPDATE user SET username = :username, password = :password WHERE username = :username";
+}
 
 
 
