@@ -30,17 +30,17 @@
         <h1>Bitte Logge Dich Ein</h1>
         <form method="post" action="request.php">
             <div class="input">
-                <label for="user">Benutzername</label>
-                <input id="user" name="user" type="text" required autofocus />
+                <label for="username">Benutzername</label>
+                <input id="username" name="username" type="text" required autofocus />
             </div>
 
             <div class="input">
-                <label for="pass">Passwort</label>
-                <input id="pass" name="pass" type="password" required />
+                <label for="password">Passwort</label>
+                <input id="password" name="password" type="password" required />
             </div>
 
             <div class="actions">
-                <button class="login" type="submit">Anmelden</button>
+                <button class="login" type="submit" name="login" value="login">Anmelden</button>
             </div>
         </form>
     <br>
