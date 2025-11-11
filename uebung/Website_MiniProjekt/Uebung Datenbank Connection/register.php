@@ -40,7 +40,7 @@
             </div>
 
             <div class="actions">
-                <button class="login" type="submit" name="submit" value="submit">Anmelden</button>
+                <button class="login" type="submit" name="submit" value="submit">Registrieren</button>
             </div>
         </form>
     <br>

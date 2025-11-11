@@ -9,7 +9,14 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    get_user_by_username($username, $password);
+    $_SESSION["logged_in_user"] = get_user_by_username($username, $password);
+}
+
+if (isset($_POST['Delete'])) {
+    print_r($_SESSION['logged_in_user']);
+    echo "id is: " . $_SESSION['logged_in_user']['id'];
+    delete_user($_SESSION['logged_in_user']['id']);
+
 }
 
 
@@ -43,6 +50,24 @@ function getConnection_login(): ?PDO
     //Create connection //Check Connection
     try {
         return new PDO("mysql:host=$host;dbname=$db", $dbms_user_login, $pw_login_user);
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        return NULL;
+    }
+}
+
+function getConnection_delete(): ?PDO
+{
+    # Datenbank Credentials
+    $host = "127.0.0.1";
+    $db = "login";
+
+    $dbms_user_delete = "delete_admin";
+    $pw_delete_user = "q1w2e3r4t5";
+
+    //Create connection //Check Connection
+    try {
+        return new PDO("mysql:host=$host;dbname=$db", $dbms_user_delete, $pw_delete_user);
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         return NULL;
@@ -87,21 +112,49 @@ function get_user_by_username(string $username, $password): array
         $id = $result[0]['id'];
         $username = $result[0]['username'];
         echo "User successfully logged in";
+        echo "<br>";
+        echo "<br>";
         return ['id' => $id, 'username' => $username];
     }
     else
         return [];
 }
 
-function delete_user()
+function delete_user($id): void
 {
-    $query = "DELETE FROM user WHERE username = :username";
+    $conn = getConnection_delete();
+    $query = "DELETE FROM user WHERE id = :id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    echo "User deleted successfully";
 }
 
 function update_user()
 {
     $query = "UPDATE user SET username = :username, password = :password WHERE username = :username";
 }
+
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background-color: gray">
+Hello <?php echo $_SESSION['logged_in_user']['username'] . " with id " . $_SESSION['logged_in_user']['id']; ?>
+<br>
+<br>
+<form method="POST" action="request.php">
+<button type="submit" name="Delete" value="Delete">DELETE ME</button>
+</form>
+</body>
+</html>
 
 
 
