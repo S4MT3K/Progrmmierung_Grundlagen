@@ -21,7 +21,7 @@ if (isset($_POST['Delete'])) {
 }
 
 //SCHREIBT EINE UPDATE FUNKTION
-
+//ZUSATZ DENKT AN DE BUTTON :D
 
 function getConnection_register(): ?PDO
 {
