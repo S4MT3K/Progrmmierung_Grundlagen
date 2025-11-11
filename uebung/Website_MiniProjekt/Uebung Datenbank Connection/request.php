@@ -1,5 +1,12 @@
 <?php
+#________________ LOADING REGISTER ________________
+require_once "./classes/DBConn.php";
+#MAYBE USE A spl_autoloadregister if theres more than 5 files
+
+#________________ SESSION START ________________
 session_start();
+
+#________________ POST REQUESTS ________________
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,6 +18,15 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $_SESSION["logged_in_user"] = get_user_by_username($username, $password);
+    header('Location: profile.php');
+}
+
+if (isset($_POST['update'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    update_user($_SESSION['logged_in_user']['id'], $username, $password);
+    $_SESSION["logged_in_user"] = get_user_by_username($username, $password);
+    header('Location: profile.php');
 }
 
 if (isset($_POST['Delete'])) {
@@ -19,23 +35,16 @@ if (isset($_POST['Delete'])) {
     delete_user($_SESSION['logged_in_user']['id']);
     session_unset();
 }
-
-//SCHREIBT EINE UPDATE FUNKTION
-//ZUSATZ DENKT AN DE BUTTON :D
+#________________ DATABASE CONNECTIONS ________________
 
 function getConnection_register(): ?PDO
 {
-    # Datenbank Credentials
-    $host = "127.0.0.1";
-    $db = "login";
-
-    $pw_register_user = "q1w2e3r4t5";
-    $dbms_user_register = "register_admin";
-
-    //Create connection //Check Connection
-    try {
-        return new PDO("mysql:host=$host;dbname=$db", $dbms_user_register, $pw_register_user);
-    } catch (PDOException $e) {
+    try{
+        $conn = new DBConn;
+        return $conn->getConn("create");
+    }
+    catch(PDOException $e)
+    {
         echo "Connection failed: " . $e->getMessage();
         return NULL;
     }
@@ -43,17 +52,25 @@ function getConnection_register(): ?PDO
 
 function getConnection_login(): ?PDO
 {
-    # Datenbank Credentials
-    $host = "127.0.0.1";
-    $db = "login";
+    try{
+        $conn = new DBConn;
+        return $conn->getConn("get");
+    }
+    catch(PDOException $e)
+    {
+        echo "Connection failed: " . $e->getMessage();
+        return NULL;
+    }
+}
 
-    $dbms_user_login = "login_admin";
-    $pw_login_user = "q1w2e3r4t5";
-
-    //Create connection //Check Connection
-    try {
-        return new PDO("mysql:host=$host;dbname=$db", $dbms_user_login, $pw_login_user);
-    } catch (PDOException $e) {
+function getConnection_update(): ?PDO
+{
+    try{
+        $conn = new DBConn;
+        return $conn->getConn("update");
+    }
+    catch(PDOException $e)
+    {
         echo "Connection failed: " . $e->getMessage();
         return NULL;
     }
@@ -61,23 +78,18 @@ function getConnection_login(): ?PDO
 
 function getConnection_delete(): ?PDO
 {
-    # Datenbank Credentials
-    $host = "127.0.0.1";
-    $db = "login";
-
-    $dbms_user_delete = "delete_admin";
-    $pw_delete_user = "q1w2e3r4t5";
-
-    //Create connection //Check Connection
-    try {
-        return new PDO("mysql:host=$host;dbname=$db", $dbms_user_delete, $pw_delete_user);
-    } catch (PDOException $e) {
+    try{
+        $conn = new DBConn;
+        return $conn->getConn("delete");
+    }
+    catch(PDOException $e)
+    {
         echo "Connection failed: " . $e->getMessage();
         return NULL;
     }
 }
 
-
+#________________ DATABASE FUNCTIONS (CRUD)________________
 //CREATE, READ, UPDATE, DELETE
 function create_user(string $username, string $password): void
 {
@@ -87,8 +99,11 @@ function create_user(string $username, string $password): void
     $pwhash = password_hash($password, PASSWORD_DEFAULT);
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $pwhash);
+    //$id = $conn->lastInsertId();
     $stmt->execute();
-    echo "User created successfully";
+    sleep(1); // 3 Sekunden warten
+
+    header('Location: profile.php');
 }
 
 function get_all_Users(): array
@@ -101,7 +116,7 @@ function get_all_Users(): array
     return $result;
 }
 
-function get_user_by_username(string $username, $password): array
+function get_user_by_username(string $username, string $password): array
 {
     $conn = getConnection_login();
     $query = "SELECT id, username, password FROM user WHERE username = :username";
@@ -117,55 +132,29 @@ function get_user_by_username(string $username, $password): array
         echo "User successfully logged in";
         echo "<br>";
         echo "<br>";
-        return ['id' => $id, 'username' => $username];
+        return ['id' => $id, 'username' => $username, 'password' => $password];
     }
     else
         return [];
 }
 
-function delete_user($id): void
+function delete_user(int $id): void
 {
     $conn = getConnection_delete();
     $query = "DELETE FROM user WHERE id = :id";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
-    echo "User deleted successfully";
 }
 
-function update_user()
+function update_user(int $id, string $username, string $password): void
 {
-    $query = "UPDATE user SET username = :username, password = :password WHERE username = :username";
+    $conn = getConnection_update();
+    $query = "UPDATE user SET username = :username, password = :password WHERE id = :id";
+    $stmt = $conn->prepare($query);
+    $pwhash = password_hash($password, PASSWORD_DEFAULT);
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $pwhash);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 }
-
-?>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body style="background-color: gray">
-Hello <?php echo $_SESSION['logged_in_user']['username'] . " with id " . $_SESSION['logged_in_user']['id']; ?>
-<br>
-<br>
-<form method="POST" action="request.php">
-<button type="submit" name="Delete" value="Delete">DELETE ME</button>
-</form>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-

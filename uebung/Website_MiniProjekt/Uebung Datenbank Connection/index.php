@@ -1,5 +1,6 @@
 <?php
-//session_start(); //Brauchen wir das?
+session_start(); //Brauchen wir das?
+session_destroy();
 ?>
 
 <!doctype html>
@@ -36,7 +37,7 @@
 
             <div class="input">
                 <label for="password">Passwort</label>
-                <input id="password" name="password" type="password" required />
+                <input id="password" name="password" type="password"  />
             </div>
 
             <div class="actions">
