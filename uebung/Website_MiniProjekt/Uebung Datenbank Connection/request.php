@@ -1,9 +1,10 @@
 <?php
-
+session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     create_user($username, $password);
+    $_SESSION["logged_in_user"] = get_user_by_username($username, $password);
 }
 
 if (isset($_POST['login'])) {
@@ -16,8 +17,10 @@ if (isset($_POST['Delete'])) {
     print_r($_SESSION['logged_in_user']);
     echo "id is: " . $_SESSION['logged_in_user']['id'];
     delete_user($_SESSION['logged_in_user']['id']);
-
+    session_unset();
 }
+
+//SCHREIBT EINE UPDATE FUNKTION
 
 
 function getConnection_register(): ?PDO
